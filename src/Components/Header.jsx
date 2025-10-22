@@ -10,47 +10,62 @@ const Header = () => {
     <header className="w-full bg-white shadow-md px-4 sm:px-8 md:px-12 py-2 md:py-3 flex items-center justify-between">
       {/* ---------- Left Section ---------- */}
       <div className="flex items-center gap-6 md:gap-10">
-        {/* ✅ Logo - fixed size, not cut */}
+        {/* ✅ Logo */}
         <Link to="/">
           <img
             src="/public/Logo/Logo.svg"
             alt="Auto Essential SpareParts"
-            className="w-[70px] h-[70px] object-contain rounded-full"
+            className="w-[65px] h-[65px] object-contain rounded-full"
           />
         </Link>
 
-        {/* ✅ Nav Links with proper spacing */}
+        {/* ✅ Navigation Links */}
         <nav className="hidden sm:flex items-center gap-4 md:gap-6 lg:gap-8">
-          <Link to="/" className="text-[#0a1826] font-semibold hover:text-blue-900 text-sm md:text-base">
+          <Link
+            to="/"
+            className="text-[#0a1826] font-semibold hover:text-blue-900 text-sm md:text-base"
+          >
             Home
           </Link>
-          <Link to="/Shop" className="text-[#0a1826] font-semibold hover:text-blue-900 text-sm md:text-base">
+          <Link
+            to="/Shop"
+            className="text-[#0a1826] font-semibold hover:text-blue-900 text-sm md:text-base"
+          >
             Shop
           </Link>
-          <Link to="/Brand" className="text-[#0a1826] font-semibold hover:text-blue-900 text-sm md:text-base">
+          <Link
+            to="/Brand"
+            className="text-[#0a1826] font-semibold hover:text-blue-900 text-sm md:text-base"
+          >
             Brand
           </Link>
-          <Link to="/AboutUs" className="text-[#0a1826] font-semibold hover:text-blue-900 text-sm md:text-base">
+          <Link
+            to="/AboutUs"
+            className="text-[#0a1826] font-semibold hover:text-blue-900 text-sm md:text-base"
+          >
             About Us
           </Link>
-          <Link to="/ContactUs" className="text-[#0a1826] font-semibold hover:text-blue-900 text-sm md:text-base">
+          <Link
+            to="/ContactUs"
+            className="text-[#0a1826] font-semibold hover:text-blue-900 text-sm md:text-base"
+          >
             Contact Us
           </Link>
         </nav>
       </div>
 
       {/* ---------- Right Section ---------- */}
-      <div className="flex items-center gap-4 sm:gap-6">
-        {/* ✅ SearchBar */}
-        <div className="hidden sm:block w-[180px] md:w-[220px]">
+      <div className="flex items-center justify-center gap-4 sm:gap-5 md:gap-6 whitespace-nowrap">
+
+        {/* ✅ SearchBar — better width and centering */}
+        <div className="hidden sm:block w-[200px] md:w-[260px] lg:w-[300px]">
           <SearchBar />
         </div>
 
-        {/* ✅ Icons */}
-        <FaCartShopping className="text-2xl md:text-3xl text-[#0a1826] hover:text-blue-900 cursor-pointer" />
-
+        {/* ✅ Icons aligned & consistent size */}
+        <FaCartShopping className="text-[1.8rem] md:text-[2rem] text-[#0a1826] hover:text-blue-900 cursor-pointer" />
         <Link to={currentUser ? "/login" : "/SignUp"}>
-          <FaUserLarge className="text-2xl md:text-3xl text-[#0a1826] hover:text-blue-900 cursor-pointer" />
+          <FaUserLarge className="text-[1.8rem] md:text-[2rem] text-[#0a1826] hover:text-blue-900 cursor-pointer" />
         </Link>
       </div>
     </header>
