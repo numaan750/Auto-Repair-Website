@@ -2,16 +2,10 @@ import React, { useState } from "react";
 import { IoMdCall } from "react-icons/io";
 import { IoIosMail } from "react-icons/io";
 import { IoIosChatbubbles } from "react-icons/io";
-import FAQs from '../Components/FAQs'
+import FAQs from "../Components/FAQs";
 import Footer from "../Components/Footer";
 
-
-
-
 const ContactUs = () => {
-
-
-
   const services = [
     {
       icon: <IoMdCall size={40} />,
@@ -32,6 +26,7 @@ const ContactUs = () => {
       contact: "Chat with us now",
     },
   ];
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -52,87 +47,100 @@ const ContactUs = () => {
   };
 
   return (
-    <div className="w-full h-screen text-white ">
+    <div className="w-full min-h-screen text-white flex flex-col">
+      {/* ---------- HERO / CONTACT SECTION ---------- */}
       <div
-        className="w-[100%] px-10 py-10 flex items-center overflow-hidden"
+        className="w-full flex flex-col lg:flex-row items-center justify-center gap-8 px-6 sm:px-10 py-10 lg:py-16 bg-cover bg-center"
         style={{
           backgroundImage:
             "url('https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?q=80&w=1740&auto=format&fit=crop')",
         }}
       >
-        <div className="w-1/2 p-10">
-          <h1 className="text-4xl font-bold mb-2">Contact Our Support Team</h1>
-          <h2 className="text-lg text-gray-400 mb-6">
+        {/* ---------- FORM SECTION ---------- */}
+        <div className="w-full lg:w-1/2 bg-white bg-opacity-90 p-6 sm:p-8 rounded-xl text-black shadow-lg">
+          <h1 className="text-3xl sm:text-4xl font-bold mb-2 text-[#0a1826]">
+            Contact Our Support Team
+          </h1>
+          <h2 className="text-base sm:text-lg text-gray-600 mb-6">
             We're here to help with all your auto parts needs
           </h2>
-          <div className="bg-white p-6 rounded-xl text-black">
-            <h3 className="text-xl text-blue-500 font-bold mb-4">Get in Touch</h3>
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <input
-                type="text"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                placeholder="Your Name"
-                className="w-full p-3 border border-gray-400 rounded-lg"
-                required
-              />
-              <input
-                type="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                placeholder="Your Email"
-                className="w-full p-3 border border-gray-400 rounded-lg"
-                required
-              />
-              <textarea
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-                placeholder="Your Message"
-                className="w-full p-3 border border-gray-400 rounded-lg"
-                required
-              />
-              <button
-                type="submit"
-                className="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-gray-800 w-full"
-              >
-                Send Message
-              </button>
-            </form>
-            {showNotification && (
-              <div className="mt-4 text-green-500 font-bold">Message Sent!</div>
-            )}
-          </div>
+
+          <form onSubmit={handleSubmit} className="space-y-4">
+            <input
+              type="text"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              placeholder="Your Name"
+              className="w-full p-3 border border-gray-400 rounded-lg focus:ring-2 focus:ring-blue-400"
+              required
+            />
+            <input
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              placeholder="Your Email"
+              className="w-full p-3 border border-gray-400 rounded-lg focus:ring-2 focus:ring-blue-400"
+              required
+            />
+            <textarea
+              name="message"
+              value={formData.message}
+              onChange={handleChange}
+              placeholder="Your Message"
+              className="w-full p-3 border border-gray-400 rounded-lg h-32 resize-none focus:ring-2 focus:ring-blue-400"
+              required
+            />
+            <button
+              type="submit"
+              className="bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-[#0a1826] transition w-full"
+            >
+              Send Message
+            </button>
+          </form>
+
+          {showNotification && (
+            <div className="mt-4 text-green-600 font-semibold text-center">
+              ✅ Message Sent Successfully!
+            </div>
+          )}
         </div>
 
-        <div className="w-1/2 p-4">
+        {/* ---------- IMAGE SECTION ---------- */}
+        <div className="w-full lg:w-1/2 flex justify-center">
           <img
-            src="/public/Contact.png"
+            src="/Contact.png"
             alt="Contact Us"
-            className="w-full h-full object-cover rounded-xl"
+            className="w-full max-w-lg h-auto rounded-xl shadow-lg object-cover"
           />
         </div>
       </div>
-      <div className="bg-gray-100 py-30">
-        <h2 className="text-5xl font-bold text-center  text-blue-500 mb-12">
+
+      {/* ---------- SERVICES SECTION ---------- */}
+      <div className="bg-gray-100 py-16 px-6 sm:px-10">
+        <h2 className="text-3xl sm:text-5xl font-bold text-center text-blue-600 mb-12">
           Our Support Services
         </h2>
-        <div className="flex  items-center justify-between gap-12 max-w-5xl mx-auto">
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {services.map((service, index) => (
             <div
               key={index}
-              className="bg-white shadow-md flex flex-col items-center rounded-lg p-10 text-center w-full max-w-xs"
+              className="bg-white shadow-md rounded-xl p-8 flex flex-col items-center text-center transition transform hover:scale-105 hover:shadow-xl"
             >
-              <div className="text-black text-5xl mb-5">{service.icon}</div>
-              <h3 className="text-2xl font-semibold text-black">{service.title}</h3>
-              <p className="text-gray-500 text-xl">{service.description}</p>
-              <p className="text-blue-500 mt-2 text-xl">{service.contact}</p>
+              <div className="text-blue-600 mb-4">{service.icon}</div>
+              <h3 className="text-xl sm:text-2xl font-semibold text-gray-800 mb-1">
+                {service.title}
+              </h3>
+              <p className="text-gray-500 text-base">{service.description}</p>
+              <p className="text-blue-500 mt-2 font-medium">{service.contact}</p>
             </div>
           ))}
         </div>
       </div>
+
+      {/* ---------- FAQ & FOOTER ---------- */}
       <FAQs />
       <Footer />
     </div>
